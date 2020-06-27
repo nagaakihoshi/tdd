@@ -1,5 +1,6 @@
 {
     "name": "root/app",
+    "description": "root/app",
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^9.2"
