@@ -6,7 +6,7 @@ namespace Money;
 class Dollar
 {
     /** @var int */
-    protected $amount;
+    private $amount;
 
     /**
      * @param int $amount
