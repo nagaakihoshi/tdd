@@ -19,9 +19,9 @@ class Dollar
     /**
      * @param int $multipler
      */
-    public function times(int $multipler)
+    public function times(int $multipler): Dollar
     {
-        $this->amount *= $multipler;
+        return new Dollar($this->amount * $multipler);
     }
 
     /**
