@@ -18,6 +18,7 @@ class Dollar
 
     /**
      * @param int $multipler
+     * @return Dollar
      */
     public function times(int $multipler): Dollar
     {
@@ -30,5 +31,14 @@ class Dollar
     public function getAmount(): int
     {
         return $this->amount;
+    }
+
+    /**
+     * @param Dollar $dollar
+     * @return bool
+     */
+    public function equals(Dollar $dollar): bool
+    {
+        return $this->amount === $dollar->getAmount();
     }
 }
