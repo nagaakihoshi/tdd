@@ -15,9 +15,9 @@ class Franc extends Money
 
     /**
      * @param int $multipler
-     * @return Franc
+     * @return Money
      */
-    public function times(int $multipler): Franc
+    public function times(int $multipler): Money
     {
         return new Franc($this->amount * $multipler);
     }
