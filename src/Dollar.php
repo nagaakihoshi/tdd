@@ -3,11 +3,8 @@ declare(strict_types=1);
 
 namespace Money;
 
-class Dollar
+class Dollar extends Money
 {
-    /** @var int */
-    private $amount;
-
     /**
      * @param int $amount
      */
@@ -31,14 +28,5 @@ class Dollar
     public function getAmount(): int
     {
         return $this->amount;
-    }
-
-    /**
-     * @param Dollar $dollar
-     * @return bool
-     */
-    public function equals(Dollar $dollar): bool
-    {
-        return $this->amount === $dollar->getAmount();
     }
 }
