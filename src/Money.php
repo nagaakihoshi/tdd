@@ -3,15 +3,13 @@ declare(strict_types=1);
 
 namespace Money;
 
-abstract class Money
+class Money
 {
     /** @var int */
     protected $amount;
 
     /** @var string */
     protected $currency;
-
-    abstract protected function times(int $multipler): Money;
 
     /**
      * @param int $amount
@@ -29,8 +27,8 @@ abstract class Money
      */
     public function equals(Money $money): bool
     {
-        return $this->amount === $money->getAmount()
-            && get_class($this) === get_class($money);
+        return $this->amount === $money->amount
+            && $this->currency() === $money->currency();
     }
 
     /**
@@ -57,5 +55,22 @@ abstract class Money
     public function currency(): string
     {
         return $this->currency;
+    }
+
+    /**
+     * @param int $multipler
+     * @return Money
+     */
+    public function times(int $multipler): Money
+    {
+        return new Money($this->amount * $multipler, $this->currency);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->amount . " " . $this->currency;
     }
 }
