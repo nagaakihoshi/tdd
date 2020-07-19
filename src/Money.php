@@ -67,18 +67,18 @@ class Money implements Expression
 
     /**
      * @param int $multipler
-     * @return Money
+     * @return Expression
      */
-    public function times(int $multipler): Money
+    public function times(int $multipler): Expression
     {
         return new Money($this->amount * $multipler, $this->currency);
     }
 
     /**
-     * @param Money $addend
+     * @param Expression $addend
      * @return Expression
      */
-    public function plus(Money $addend): Expression
+    public function plus(Expression $addend): Expression
     {
         return new Sum($this, $addend);
     }
