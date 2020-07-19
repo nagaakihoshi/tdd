@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Money;
 
-class Money
+class Money implements Expression
 {
     /** @var int */
     protected $amount;
@@ -64,6 +64,15 @@ class Money
     public function times(int $multipler): Money
     {
         return new Money($this->amount * $multipler, $this->currency);
+    }
+
+    /**
+     * @param Money $addend
+     * @return Expression
+     */
+    public function plus(Money $addend): Expression
+    {
+        return new Money($this->amount + $addend->amount, $this->currency);
     }
 
     /**
